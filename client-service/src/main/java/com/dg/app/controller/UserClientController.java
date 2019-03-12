@@ -15,10 +15,5 @@ public class UserClientController {
         System.out.println(responseEntity.getStatusCode()+" : "+responseEntity.getStatusCodeValue() );
         return (String) responseEntity.getBody();
     }
-    /*
-    public static void main(String[] args){
 
-        System.out.println(getGreetings());
-    }
-    */
 }

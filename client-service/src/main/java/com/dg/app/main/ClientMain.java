@@ -2,8 +2,11 @@ package com.dg.app.main;
 
 import com.dg.app.controller.UserClientController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
 /**
@@ -19,10 +22,13 @@ public class ClientMain
     public static void main( String[] args )
     {
         SpringApplication.run(ClientMain.class, args);
-        System.out.println(getGreetings());
+
 
     }
-    public static String getGreetings(){
-        return userClientController.getGreetings("Geon");
+
+    @Bean
+    public CommandLineRunner cmdLineRunner(){
+        return args -> System.out.println(userClientController.getGreetings("Geon"));
+
     }
 }
