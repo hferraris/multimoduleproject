@@ -15,7 +15,7 @@ configuration:
     File:
       PatternLayout:
         pattern: '[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n'
-      fileName: ${log-path}/server-service.log
+      fileName: ${log-path}/server-service-file-appender.log
       name: File-Appender
     RollingFile:
       DefaultRolloverStrategy:
