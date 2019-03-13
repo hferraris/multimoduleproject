@@ -23,7 +23,6 @@ configuration:
       PatternLayout:
         pattern: '[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n'
       Policies:
-        TimeBasedTriggeringPolicy:
         SizeBasedTriggeringPolicy:
           size: 1 KB
       fileName: ${log-path}/server-service.log
