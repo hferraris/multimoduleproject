@@ -9,12 +9,14 @@ import javax.persistence.Id;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String firstName;
     private String lastName;
     private String middleName;
 
+    public Employee() {
+    }
 
     public Employee(String firstName, String lastName, String middleName) {
         this.firstName = firstName;

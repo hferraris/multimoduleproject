@@ -24,9 +24,9 @@ configuration:
         pattern: '[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n'
       Policies:
         SizeBasedTriggeringPolicy:
-          size: 1 KB
+          size: 10 KB
       fileName: ${log-path}/server-service.log
-      filePattern: ${archive}/server-service.log.%d{yyyy-MM-dd-hh-mm}.gz
+      filePattern: ${archive}/server-service.log.%d{yyyy-MM-dd-hh-mm-ss}.gz
       name: RollingFile-Appender
   loggers:
     logger:
@@ -43,4 +43,4 @@ configuration:
     root:
       appender-ref:
         ref: Console-Appender
-      level: trace
+      level: info
