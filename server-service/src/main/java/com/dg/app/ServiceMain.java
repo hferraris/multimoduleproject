@@ -1,13 +1,10 @@
-package com.dg.app.main;
+package com.dg.app;
 
 import com.dg.app.controller.UserController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
 /**
@@ -15,7 +12,7 @@ import org.springframework.context.annotation.Import;
  *
  */
 @SpringBootApplication
-@Import(UserController.class)
+//@Import(UserController.class)
 public class ServiceMain
 {
     public static Logger logger = LoggerFactory.getLogger(ServiceMain.class);
@@ -23,10 +20,10 @@ public class ServiceMain
         SpringApplication.run(ServiceMain.class, args);
     }
 
-    @Bean
+   /* @Bean
     public CommandLineRunner cmdLineRunner(ApplicationContext ctx){
         logger.info("Service test : geon");
         return args -> System.out.println("ctx.getApplicationName() = " + ctx.getDisplayName());
 
-    }
+    }*/
 }
