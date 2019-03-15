@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/employees")
+@RequestMapping("/api")
 public class EmployeeController {
     private static Logger logger = LoggerFactory.getLogger(EmployeeController.class);
     private List<Employee> empList;
@@ -28,22 +28,34 @@ public class EmployeeController {
 
     }
 */
-    @GetMapping("/all")
+    @GetMapping("/employees")
     public List<Employee> getEmployees(){
            // return empList;
         return employeeRepository.findAll();
     }
 
-    @GetMapping("/employee/{lastName}")
+    @GetMapping("/employees/{lastName}")
     public List<Employee> getEmployee(@PathVariable String lastName){
        // return empList.stream().filter(emp -> emp.getLastName().equals(lastName)).collect(Collectors.toList());
         return employeeRepository.findByLastName(lastName);
     }
 
-    @PostMapping("/employee")
+    @PostMapping("/employees")
     public Employee createEmployee(@RequestBody Employee employee){
         /*empList.add(employee);
         return empList;*/
         return employeeRepository.save(employee);
+    }
+
+    @PutMapping("/employees/{id}")
+    public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee employee){
+        employee.setId(id);
+        return employeeRepository.save(employee);
+    }
+
+    @DeleteMapping("/employees/{id}")
+    public void deleteEmployee(@PathVariable Long id, @RequestBody Employee employee){
+        employee.setId(id);
+        employeeRepository.delete(employee);
     }
 }
